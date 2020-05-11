@@ -1,0 +1,34 @@
+/* You can add global styles to this file, and also import other style files */
+.navbar{
+    background-color:orangered;
+  }
+  .fa-truck{
+    color: blue;
+  }
+  .card-body{
+    padding: 25px;
+  }
+  .menu-item{
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .fa-cart-plus{
+    margin-right: 10px;
+  }
+  .fa-pencil{
+    margin-right: 10px;
+  }
+  .edit-menu-section{
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+  .text{
+    color:red;
+  }
+  .saved-notification{
+    margin-left: 70px;
+    margin-right: 70px;
+  }
+  .err-message{
+    color: red;
+  }

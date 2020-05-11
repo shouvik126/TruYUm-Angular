@@ -1,0 +1,154 @@
+<!-- Edit Menu Section start -->       
+<section class=" edit-menu-section">
+    <div class="container-fluid">
+        <h4 class="text-capitalize pt-5" style="text-align: left">Edit Menu Item</h4><br>
+        <div 
+        class="alert alert-success my-3"
+        *ngIf="foodEdited">
+            <h5 class="text-green">Menu Item Details Saved Successfully</h5>
+        </div> 
+        <div>
+            <form 
+            [formGroup]="editFoodForm"
+            (ngSubmit)="updateFoodItem()">
+                <div class="form-group w-100" style="text-align: left">
+                    <label for="name">
+                        <h5>Item Name</h5>
+                    </label>
+                    <input 
+                    type="name" 
+                    class="form-control" 
+                    id="name"
+                    formControlName="name">
+                    <div 
+                    *ngIf="editFoodForm.get('name').hasError('required')"
+                    class="text" >
+                        Item Name required
+                    </div>
+                    <div 
+                    *ngIf="editFoodForm.get('name').hasError('maxLength')"
+                    class="text">
+                        Item Name cannot exceed 100 characters
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-3 my-1">
+                        <div class="form-group">
+                            <label for="price">
+                                <h5>Price</h5>
+                            </label>
+                            <input 
+                            type="number" 
+                            class="form-control" 
+                            id="price"
+                            formControlName="price">
+                            <div
+                            *ngIf="editFoodForm.get('price').hasError('required')" 
+                            class="text" >
+                                Price is required 
+                            </div>
+                            <div
+                            class="text"
+                            *ngIf="editFoodForm.get('price').hasError('pattern')">
+                                can only contain Numbers 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 my-1">
+                        <div class="form-group">
+                            <label for="dol">
+                                <h5>Date Of Launch</h5>
+                            </label>
+                            <input 
+                            type="date" 
+                            class="form-control"
+                            
+                            formControlName="dateOfLaunch">
+                            <div 
+                            class="text"
+                            *ngIf="editFoodForm.get('dateOfLaunch').hasError('required')"> 
+                                <!-- incorrect date format  -->
+                                Date required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 my-1">
+                        <div class="form-group">
+                            <label for="category">
+                                <h5>Category</h5>
+                            </label>
+                            <select 
+                            id="category" 
+                            class="form-control"
+                            formControlName="category">
+                                <option selected> Select a Type</option>
+                                <option value="MainCourse">Main Course</option>
+                                <option value="Starter">Starter</option>
+                                <option value="Dessert">Dessert</option>
+                            </select>
+                            <div 
+                            class="text"
+                            *ngIf="editFoodForm.get('category').hasError('required')">
+                                Select At least One Category
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-3 my-1">
+                        <div class="form-group">
+                            <label for="active">
+                                <h5>Active</h5>
+                            </label>
+                            <div>
+                                <label class="radio-inline">
+                                    <input 
+                                    type="radio" 
+                                    [value]="true"
+                                    formControlName="active">Yes
+                                </label>
+                                <label class="radio-inline" style="margin-left: 10px;">
+                                    <input 
+                                    type="radio" 
+                                    [value]="false"
+                                    formControlName="active"
+                                    >No
+                                </label>
+                            </div>
+                            <div 
+                            class="text"
+                            *ngIf="editFoodForm.get('active').hasError('required')"> 
+                             Select In Stock Status 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input 
+                        class="form-check-input" 
+                        type="checkbox" 
+                        formControlName="freeDelivery">
+                        <h5>Free Delivery</h5>
+                    </label>
+                    <!-- <div 
+                    class="text"
+                    *ngIf="editFoodForm.get('freeDelivery').hasError('requiredTrue')"> 
+                        Select Delivery Status 
+                    </div> -->
+                </div>
+                <button 
+                class="btn btn-change btn-lg" 
+                style="background-color: orangered;" 
+                type="submit"
+                [disabled]="editFoodForm.invalid">
+                    <h6 class="loginelements text-white">Save</h6>
+                </button>
+            </form>
+            <br>
+        </div>
+    </div>
+
+</section>
+<!-- Edit Menu Section End -->
